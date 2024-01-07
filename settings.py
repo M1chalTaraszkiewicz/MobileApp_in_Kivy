@@ -6,7 +6,7 @@ from kivy.uix.image import Image
 # zmienne globalne
 color = "blue"
 pl = ["Graj", "Ustawienia", "Wyjdź", "Litera po literze", "Druga", "Trzecia", "Wróć", "Różowy", "Biały", "Niebieski", "Zielony", "Polski", "English", "Wielkość czcionki", "Mała", "Średnia", "Duża", "Podaj literę bądź całe hasło!", "Nietrafione litery: ", "Użyte litery: ", "Gratulacje!", "Hasło to: ", "Następne słowo"]
-en = ["Play", "Settings", "Quit", "Letter by letter", "Second", "Third", "Back", "Pink", "White", "Blue", "Green", "Polski", "English", "Font size", "Small", "Medium", "Big", "Enter a letter or the entire password!", "Missed letters: ", "Letter used: ", "Congratulations!", "The password is: ", "Next word"]
+en = ["Play", "Settings", "Quit", "Letter by letter", "Second", "Third", "Back", "Pink", "White", "Blue", "Green", "Polski", "English", "Font size", "Small", "Medium", "Big", "Enter a letter or the entire password!", "Missed letters: ", "Letters used: ", "Congratulations!", "The password is: ", "Next word"]
 current_lang = en
 font_size = 16
 font = "Fonts/RussoOne-Regular.ttf"
@@ -175,7 +175,6 @@ class Settings(Screen):
         first_game = self.manager.get_screen('first_game')
         if first_game:
             first_game.back_button.font_size = font_size
-            first_game.title_label.font_size = font_size*2
             first_game.password_display_label.font_size = font_size*2
             first_game.text_input.font_size = font_size
             first_game.used_letters_title_label.font_size = font_size
@@ -221,7 +220,6 @@ class Settings(Screen):
 
         first_game = self.manager.get_screen('first_game')
         if first_game:
-            first_game.title_label.text = current_lang[3]
             first_game.back_button.text = current_lang[6]
             first_game.text_input.hint_text = current_lang[17]
             first_game.used_letters_title_label.text = current_lang[19]
@@ -272,3 +270,9 @@ class Settings(Screen):
             game_menu.first_button.background_normal = get_button_path()
             game_menu.second_button.background_normal = get_button_path()
             game_menu.third_button.background_normal = get_button_path()
+
+        first_game = self.manager.get_screen('first_game')
+        if first_game:
+            first_game.background.source = get_background_path()
+            first_game.back_button.background_normal = get_button_path()
+            first_game.reset_button.background_normal = get_button_path()
