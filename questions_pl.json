@@ -1,0 +1,52 @@
+[
+    {
+        "question": "Kto napisał powieść 'Lalka'?",
+        "correct_answer": "Bolesław Prus",
+        "answers": ["Henryk Sienkiewicz", "Adam Mickiewicz", "Juliusz Słowacki", "Bolesław Prus"]
+    },
+    {
+        "question": "W którym roku wybuchła II wojna światowa?",
+        "correct_answer": "1939",
+        "answers": ["1914", "1939", "1945", "1956"]
+    },
+    {
+        "question": "Jaka jest stolica Francji?",
+        "correct_answer": "Paryż",
+        "answers": ["Londyn", "Berlin", "Warszawa", "Paryż"]
+    },
+    {
+        "question": "Który pierwiastek chemiczny ma symbol 'Fe'?",
+        "correct_answer": "Żelazo",
+        "answers": ["Wapń", "Miedź", "Sód", "Żelazo"]
+    },
+    {
+        "question": "Jak nazywa się najwyższy góra świata?",
+        "correct_answer": "Mount Everest",
+        "answers": ["Mont Blanc", "K2", "Mount Everest", "Annapurna"]
+    },
+    {
+        "question": "Kto skomponował 'Sonatę księżycową'?",
+        "correct_answer": "Ludwig van Beethoven",
+        "answers": ["Johann Sebastian Bach", "Wolfgang Amadeus Mozart", "Ludwig van Beethoven", "Franz Schubert"]
+    },
+    {
+        "question": "Które zwierzę jest symbolem Firefox'a?",
+        "correct_answer": "Panda czerwona",
+        "answers": ["Orzeł", "Panda czerwona", "Tygrys bengalski", "Kangur"]
+    },
+    {
+        "question": "Jaki kolor ma flaga Włoch?",
+        "correct_answer": "Zielono-biało-czerwona",
+        "answers": ["Czerwono-biała", "Zielono-biało-czerwona", "Niebiesko-biała", "Żółto-czarna"]
+    },
+    {
+        "question": "W którym roku miała miejsce bitwa pod Grunwaldem?",
+        "correct_answer": "1410",
+        "answers": ["1420", "1435", "1410", "1445"]
+    },
+    {
+        "question": "Kto był pierwszym człowiekiem na Księżycu?",
+        "correct_answer": "Neil Armstrong",
+        "answers": ["Buzz Aldrin", "Yuri Gagarin", "John Glenn", "Neil Armstrong"]
+    }
+]

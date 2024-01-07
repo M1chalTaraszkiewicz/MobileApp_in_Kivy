@@ -24,7 +24,8 @@ class GameMenu(Screen):
                                     font_name=font,
                                     pos_hint={"center_x": 0.5, "center_y": 0.5},
                                     size_hint=(0.5, 0.1),
-                                    background_normal=get_button_path())
+                                    background_normal=get_button_path(),
+                                    on_release=self.on_second_button_click)
         layout.add_widget(self.second_button)
 
         self.third_button = Button(text=current_lang[5],
@@ -32,7 +33,8 @@ class GameMenu(Screen):
                                    font_name=font,
                                    pos_hint={"center_x": 0.5, "center_y": 0.38},
                                    size_hint=(0.5, 0.1),
-                                   background_normal=get_button_path())
+                                   background_normal=get_button_path(),
+                                   on_release=self.on_third_button_click)
         layout.add_widget(self.third_button)
 
         self.back_button = Button(text=current_lang[6],
@@ -59,3 +61,10 @@ class GameMenu(Screen):
         self.manager.transition = SlideTransition(direction='left')
         self.manager.current = 'first_game'
 
+    def on_second_button_click(self, instance):
+        self.manager.transition = SlideTransition(direction='left')
+        self.manager.current = 'second_game'
+
+    def on_third_button_click(self, instance):
+        self.manager.transition = SlideTransition(direction='left')
+        self.manager.current = 'third_game'

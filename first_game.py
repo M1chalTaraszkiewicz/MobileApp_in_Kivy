@@ -11,10 +11,10 @@ from settings import get_background_path, get_button_path, font, font_size, curr
 def password_generator():
     from settings import current_lang
     if current_lang[0] == "Graj":
-        with open('pl_words.txt', 'r', encoding='utf-8') as file:
+        with open('words_pl.txt', 'r', encoding='utf-8') as file:
             words = file.read().split()
     else:
-        with open('en_words.txt', 'r', encoding='utf-8') as file:
+        with open('words_en.txt', 'r', encoding='utf-8') as file:
             words = file.read().split()
     word = random.choice(words)
     print(word)
@@ -29,6 +29,7 @@ word, password, usedLetters = password_generator()
 class FirstGame(Screen):
     def __init__(self, **kwargs):
         super(FirstGame, self).__init__(**kwargs)
+
         # tworzenie layoutu typu FloatLayout
         layout = FloatLayout()
 
@@ -93,6 +94,10 @@ class FirstGame(Screen):
                                 allow_stretch=True)
         self.add_widget(self.background)
         self.add_widget(layout)
+
+    def on_pre_enter(self):
+        self.game_reset(self)
+        pass
 
     def on_text_input(self, instance):
         global usedLetters, password, word

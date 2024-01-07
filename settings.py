@@ -5,8 +5,8 @@ from kivy.uix.image import Image
 
 # zmienne globalne
 color = "blue"
-pl = ["Graj", "Ustawienia", "Wyjdź", "Litera po literze", "Druga", "Trzecia", "Wróć", "Różowy", "Biały", "Niebieski", "Zielony", "Polski", "English", "Wielkość czcionki", "Mała", "Średnia", "Duża", "Podaj literę bądź całe hasło!", "Nietrafione litery: ", "Użyte litery: ", "Gratulacje!", "Hasło to: ", "Następne słowo"]
-en = ["Play", "Settings", "Quit", "Letter by letter", "Second", "Third", "Back", "Pink", "White", "Blue", "Green", "Polski", "English", "Font size", "Small", "Medium", "Big", "Enter a letter or the entire password!", "Missed letters: ", "Letters used: ", "Congratulations!", "The password is: ", "Next word"]
+pl = ["Graj", "Ustawienia", "Wyjdź", "Litera po literze", "Pytania", "Trzecia", "Wróć", "Różowy", "Biały", "Niebieski", "Zielony", "Polski", "English", "Wielkość czcionki", "Mała", "Średnia", "Duża", "Podaj literę bądź całe hasło!", "Nietrafione litery: ", "Użyte litery: ", "Gratulacje!", "Hasło to: ", "Następne słowo"]
+en = ["Play", "Settings", "Quit", "Letter by letter", "Questions", "Third", "Back", "Pink", "White", "Blue", "Green", "Polski", "English", "Font size", "Small", "Medium", "Big", "Enter a letter or the entire password!", "Missed letters: ", "Letters used: ", "Congratulations!", "The password is: ", "Next word"]
 current_lang = en
 font_size = 16
 font = "Fonts/RussoOne-Regular.ttf"
@@ -181,6 +181,20 @@ class Settings(Screen):
             first_game.used_letters_label.font_size = font_size
             first_game.reset_button.font_size = font_size
 
+        second_game = self.manager.get_screen('second_game')
+        if second_game:
+            second_game.question_label.font_size = font_size
+            second_game.a_answer_label.font_size = font_size
+            second_game.b_answer_label.font_size = font_size
+            second_game.c_answer_label.font_size = font_size
+            second_game.d_answer_label.font_size = font_size
+            second_game.a_button.font_size = font_size
+            second_game.b_button.font_size = font_size
+            second_game.c_button.font_size = font_size
+            second_game.d_button.font_size = font_size
+            second_game.back_button.font_size = font_size
+
+
 
     # funkcja przycisków "lang_button_pl" i "ang_button_en" zmieniająca język wszystkich ekranów
     def on_language_button_click(self, instance):
@@ -224,6 +238,10 @@ class Settings(Screen):
             first_game.text_input.hint_text = current_lang[17]
             first_game.used_letters_title_label.text = current_lang[19]
             first_game.reset_button.text = current_lang[22]
+
+        second_game = self.manager.get_screen('second_game')
+        if second_game:
+            second_game.back_button.text = current_lang[6]
 
     # funkcja przycisku "back_button" - przejście do ekranu głównego
     def on_back_button_click(self, instance):
@@ -276,3 +294,12 @@ class Settings(Screen):
             first_game.background.source = get_background_path()
             first_game.back_button.background_normal = get_button_path()
             first_game.reset_button.background_normal = get_button_path()
+
+        second_game = self.manager.get_screen('second_game')
+        if second_game:
+            second_game.background.source = get_background_path()
+            second_game.back_button.background_normal = get_button_path()
+            second_game.a_button.background_normal = get_button_path()
+            second_game.b_button.background_normal = get_button_path()
+            second_game.c_button.background_normal = get_button_path()
+            second_game.d_button.background_normal = get_button_path()

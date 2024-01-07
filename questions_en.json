@@ -1,0 +1,52 @@
+[
+    {
+        "question": "Who wrote the novel 'The Doll'?",
+        "correct_answer": "Bolesław Prus",
+        "answers": ["Henryk Sienkiewicz", "Adam Mickiewicz", "Juliusz Słowacki", "Bolesław Prus"]
+    },
+    {
+        "question": "In which year did World War II break out?",
+        "correct_answer": "1939",
+        "answers": ["1914", "1939", "1945", "1956"]
+    },
+    {
+        "question": "What is the capital of France?",
+        "correct_answer": "Paris",
+        "answers": ["London", "Berlin", "Warsaw", "Paris"]
+    },
+    {
+        "question": "Which chemical element has the symbol 'Fe'?",
+        "correct_answer": "Iron",
+        "answers": ["Calcium", "Copper", "Sodium", "Iron"]
+    },
+    {
+        "question": "What is the highest mountain in the world?",
+        "correct_answer": "Mount Everest",
+        "answers": ["Mont Blanc", "K2", "Mount Everest", "Annapurna"]
+    },
+    {
+        "question": "Who composed the 'Moonlight Sonata'?",
+        "correct_answer": "Ludwig van Beethoven",
+        "answers": ["Johann Sebastian Bach", "Wolfgang Amadeus Mozart", "Ludwig van Beethoven", "Franz Schubert"]
+    },
+    {
+        "question": "Which animal is the symbol of Firefox?",
+        "correct_answer": "Red Panda",
+        "answers": ["Eagle", "Red Panda", "Bengal Tiger", "Kangaroo"]
+    },
+    {
+        "question": "What colors does the Italian flag have?",
+        "correct_answer": "Green-white-red",
+        "answers": ["Red-white", "Green-white-red", "Blue-white", "Yellow-black"]
+    },
+    {
+        "question": "In which year did the Battle of Grunwald take place?",
+        "correct_answer": "1410",
+        "answers": ["1420", "1435", "1410", "1445"]
+    },
+    {
+        "question": "Who was the first man on the Moon?",
+        "correct_answer": "Neil Armstrong",
+        "answers": ["Buzz Aldrin", "Yuri Gagarin", "John Glenn", "Neil Armstrong"]
+    }
+]

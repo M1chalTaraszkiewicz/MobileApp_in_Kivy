@@ -4,6 +4,8 @@ from main_menu import MainMenu
 from game_menu import GameMenu
 from settings import Settings
 from first_game import FirstGame
+from second_game import SecondGame
+from third_game import ThirdGame
 from kivy.core.window import Window
 
 
@@ -15,6 +17,8 @@ class MyApp(App):
         sm.add_widget(GameMenu(name='game_menu'))
         sm.add_widget(Settings(name='settings'))
         sm.add_widget(FirstGame(name='first_game'))
+        sm.add_widget(SecondGame(name='second_game'))
+        sm.add_widget(ThirdGame(name='third_game'))
         sm.current = 'main_menu'
         return sm
 
