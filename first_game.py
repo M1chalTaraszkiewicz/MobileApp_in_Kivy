@@ -4,6 +4,7 @@ from kivy.uix.image import Image
 from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
+from kivy.uix.popup import Popup
 import random
 from settings import get_background_path, get_button_path, font, font_size, current_lang
 
@@ -32,6 +33,15 @@ class FirstGame(Screen):
 
         # tworzenie layoutu typu FloatLayout
         layout = FloatLayout()
+
+        self.info_button = Button(text="i",
+                                  pos_hint={"x": 0.01, "y": 0.91},
+                                  font_size=font_size,
+                                  font_name=font,
+                                  size_hint=(0.20, 0.08),
+                                  background_normal=get_button_path(),
+                                  on_release=self.on_info_button)
+        layout.add_widget(self.info_button)
 
         self.password_display_label = Label(text=" ".join(password),
                                             font_size=font_size*2,
@@ -98,6 +108,54 @@ class FirstGame(Screen):
     def on_pre_enter(self):
         self.game_reset(self)
         pass
+
+    def on_info_button(self, instance):
+        from settings import current_lang
+        text_pl = (f'Twoim zadaniem jest odgadnięcie tajemniczego słowa. Wpisz pojedynczą literę lub całe hasło w pole'
+                   f' tekstowe. Każda poprawna litera zostanie umieszczona w odpowiednim miejscu w haśle. Gra skończy'
+                   f' się, gdy uda ci się odgadnąć całe słowo.\nPowodzenia!')
+        text_en = (f'Your task is to guess the mysterious word. Enter a single letter or the entire password into the'
+                   f' text box. Each correct letter will be placed in the correct place in the password. The game will'
+                   f' end when you manage to guess the whole word.\nGood luck!')
+
+        title_pl = f'Witaj w grze "Litera po literze"!'
+        title_en = f'Welcome to the game "Letter by letter"'
+
+        if current_lang[0] == "Graj":
+            text = text_pl
+            title = title_pl
+        else:
+            text = text_en
+            title = title_en
+
+        layout = FloatLayout()
+
+        label = Label(text=text,
+                      text_size=(self.width*0.7, None),
+                      font_size=font_size,
+                      font_name=font,
+                      halign='center',
+                      valign='middle',
+                      pos_hint={"center_x": 0.5, "y": 0.16})
+        layout.add_widget(label)
+
+        back_button = Button(text=current_lang[6],
+                             pos_hint={"center_x": 0.5, "y": 0.05},
+                             font_size=font_size,
+                             font_name=font,
+                             size_hint=(0.5, 0.22),
+                             background_normal=get_button_path(),
+                             on_release=lambda x: popup.dismiss())
+        layout.add_widget(back_button)
+
+        popup = Popup(title=title,
+                      title_align='center',
+                      title_font=font,
+                      title_size=font_size,
+                      content=layout,
+                      size_hint=(0.8, 0.5),
+                      separator_color=(0, 0, 0, 0))
+        popup.open()
 
     def on_text_input(self, instance):
         global usedLetters, password, word

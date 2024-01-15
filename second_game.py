@@ -3,6 +3,7 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.image import Image
 from kivy.uix.label import Label
 from kivy.uix.button import Button
+from kivy.uix.popup import Popup
 from kivy.clock import Clock
 import random
 import json
@@ -38,6 +39,15 @@ class SecondGame(Screen):
         q, answers, correct_answer = generate_question()
         self.correct_answer = correct_answer
         self.answers = answers
+
+        self.info_button = Button(text="i",
+                                  pos_hint={"x": 0.01, "y": 0.91},
+                                  font_size=font_size,
+                                  font_name=font,
+                                  size_hint=(0.20, 0.08),
+                                  background_normal=get_button_path(),
+                                  on_release=self.on_info_button)
+        layout.add_widget(self.info_button)
 
         self.question_label = Label(text=q,
                                     text_size=(self.width*4, None),
@@ -135,6 +145,58 @@ class SecondGame(Screen):
     def on_pre_enter(self):
         self.game_reset(self)
         pass
+
+    def on_info_button(self, instance):
+        from settings import current_lang
+        text_pl = (f'Twój cel to udzielenie poprawnych odpowiedzi na pytania. Poniżej znajdziesz 4 przyciski z literami'
+                   f' (A, B, C, D). Wybierz przycisk z literą, która Twoim zdaniem jest poprawną odpowiedzią. Jeśli'
+                   f' udzielisz poprawnej odpowiedzi, przycisk zmieni kolor na zielony, a po chwili pojawi się kolejne'
+                   f' pytanie. W przypadku błędnej odpowiedzi, przycisk z odpowiedzią zmieni kolor na czerwony, ale'
+                   f' masz szansę na ponowny wybór.\nPowodzenia!')
+        text_en = (f'Your goal is to answer the questions correctly. Below you will find 4 buttons with letters'
+                   f' (A, B, C, D). Select the button with the letter you think is the correct answer. If you answer'
+                   f' correctly, the button will turn green and after a while another question will appear. If you'
+                   f' answer incorrectly, the answer button will turn red, but you have a chance to choose again.'
+                   f'\nGood luck!')
+
+        title_pl = f'Witaj w grze "Pytania"!'
+        title_en = f'Welcome to the game "Qestions"'
+
+        if current_lang[0] == "Graj":
+            text = text_pl
+            title = title_pl
+        else:
+            text = text_en
+            title = title_en
+
+        layout = FloatLayout()
+
+        label = Label(text=text,
+                      text_size=(self.width*0.7, None),
+                      font_size=font_size,
+                      font_name=font,
+                      halign='center',
+                      valign='middle',
+                      pos_hint={"center_x": 0.5, "y": 0.13})
+        layout.add_widget(label)
+
+        back_button = Button(text=current_lang[6],
+                             pos_hint={"center_x": 0.5, "y": 0.05},
+                             font_size=font_size,
+                             font_name=font,
+                             size_hint=(0.5, 0.15),
+                             background_normal=get_button_path(),
+                             on_release=lambda x: popup.dismiss())
+        layout.add_widget(back_button)
+
+        popup = Popup(title=title,
+                      title_align='center',
+                      title_font=font,
+                      title_size=font_size,
+                      content=layout,
+                      size_hint=(0.8, 0.65),
+                      separator_color=(0, 0, 0, 0))
+        popup.open()
 
     def on_back_button_click(self, instance):
         self.manager.transition = SlideTransition(direction='right')
